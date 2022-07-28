@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InteractionSection should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="row"
+  >
+    <div
+      class="col"
+    >
+      <div
+        class="card"
+        data-testid="counting-section"
+      >
+        <div
+          class="card-body"
+        >
+          <p
+            class="card-text"
+          >
+            Beep Boop Click This Button
+          </p>
+          <button
+            class="btn btn-secondary"
+            type="button"
+          >
+            Boop
+          </button>
+        </div>
+        <div
+          class="card-footer"
+          data-testid="click-count"
+          style="text-align: end;"
+        >
+          You've clicked the button 
+          <b>
+            0
+          </b>
+           times
+        </div>
+      </div>
+    </div>
+    <div
+      class="col"
+    >
+      <div
+        class="card"
+        data-testid="text-input-section"
+      >
+        <div
+          class="card-body"
+        >
+          <p
+            class="card-text"
+          >
+            What does your heart desire?
+          </p>
+          <input
+            class="form-control"
+            placeholder="Tell me your secrets"
+            type="text"
+          />
+        </div>
+        <div
+          class="card-footer"
+          data-testid="text-output"
+          style="text-align: end;"
+        >
+          You didn't tell me anything
+        </div>
+      </div>
+    </div>
+    <div
+      class="col"
+    >
+      <div
+        class="card"
+        data-testid="modal-invoke-section"
+      >
+        <div
+          class="card-body"
+        >
+          <p
+            class="card-text"
+          >
+            Need a smile? Get a cat!
+          </p>
+          <button
+            class="btn btn-secondary"
+            type="button"
+          >
+            Get cat
+          </button>
+        </div>
+        <div
+          class="card-footer"
+          data-testid="app-version"
+          style="text-align: end;"
+        >
+          I hope you like your cat
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
