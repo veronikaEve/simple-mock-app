@@ -1,0 +1,45 @@
+resources:
+  - name: simple-mock-app
+    type: git
+    icon: github
+    source:
+      uri: https://github.com/veronikaEve/simple-mock-app
+      branch: master
+
+  - name: img-node
+    type: registry-image
+    source:
+      repository: node
+      tag: 16.14.0-stretch
+
+jobs:
+  - name: unit-test
+    public: true
+    plan:
+      - get: img-node
+      - get: simple-mock-app
+        trigger: true # triggers job when the simple-mock-app resource changes, i.e. there is a new commit pushed to master
+      - task: install
+        image: img-node 
+        config:
+          inputs:
+            - name: simple-mock-app
+          outputs:
+            - name: app
+              path: simple-mock-app
+          platform: linux
+          run: # runs `yarn install` in the simple-mock-app root directory
+            path: yarn
+            args: ["install"] 
+            dir: simple-mock-app
+      - task: test
+        image: img-node
+        config:
+          inputs:
+            - name: app
+              path: simple-mock-app
+          platform: linux
+          run: # runs `yarn run jest` in the simple-mock-app root directory
+            path: yarn
+            args: ["run", "jest"]
+            dir: simple-mock-app
