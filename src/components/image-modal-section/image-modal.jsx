@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import fetch from "isomorphic-fetch";
+
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";

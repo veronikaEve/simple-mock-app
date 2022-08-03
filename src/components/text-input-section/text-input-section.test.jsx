@@ -1,3 +1,4 @@
+import React from "react";
 import { render, fireEvent, screen, within } from "@testing-library/react";
 
 import TextInputSection from "./text-input-section";

@@ -1,4 +1,5 @@
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import React from "react";
+import { render } from "@testing-library/react";
 
 import InteractionSection from "./interaction-section";
 
