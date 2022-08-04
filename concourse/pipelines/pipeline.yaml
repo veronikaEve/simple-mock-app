@@ -10,7 +10,7 @@ resources:
     type: registry-image
     source:
       repository: node
-      tag: 16.14.0-stretch
+      tag: 16.14.0-stretch # node version
 
 jobs:
   - name: unit-test
@@ -23,23 +23,23 @@ jobs:
         image: img-node 
         config:
           inputs:
-            - name: simple-mock-app
+            - name: simple-mock-app # gets the simple-mock-app resource and places it in a folder called simple-mock-app
           outputs:
-            - name: app
-              path: simple-mock-app
+            - name: app # after doing the install -> it puts the new folder (with all the newly install stuff) into a folder called app | this persists and is used by the test task
+              path: simple-mock-app # app contains simple-mock-app
           platform: linux
-          run: # runs `yarn install` in the simple-mock-app root directory
+          run: # runs `yarn install` in the simple-mock-app directory
             path: yarn
             args: ["install"] 
             dir: simple-mock-app
       - task: test
         image: img-node
         config:
-          inputs:
+          inputs: # this input is what the install task outputted
             - name: app
               path: simple-mock-app
           platform: linux
-          run: # runs `yarn run jest` in the simple-mock-app root directory
+          run: # runs `yarn run jest` in the simple-mock-app directory
             path: yarn
             args: ["run", "jest"]
             dir: simple-mock-app
