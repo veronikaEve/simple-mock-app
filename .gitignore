@@ -11,6 +11,9 @@
 # production
 /build
 
+# CI/CD
+concourse/credentials.yaml
+
 # misc
 .DS_Store
 .env.local
