@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-function AppDetails() {
+function AppDetails(props) {
   return (
     <Row>
       <Col>
@@ -28,7 +28,7 @@ function AppDetails() {
             <Card.Text>The current version of this app is</Card.Text>
           </Card.Body>
           <Card.Footer style={{ textAlign: "end" }} data-testid="app-version">
-            v1.0.0
+            v{props.appVersion}
           </Card.Footer>
         </Card>
       </Col>
