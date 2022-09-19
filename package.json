@@ -1,6 +1,6 @@
 {
   "name": "simple-mock-app",
-  "version": "1.5.12",
+  "version": "1.5.13",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^8.16.0",
