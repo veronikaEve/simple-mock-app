@@ -61,24 +61,6 @@ describe("ImageModal", () => {
     expect(closeButton).toBeInTheDocument();
   });
 
-  test("should render modal with a new image url if `New Cat` button is clicked", async () => {
-    render(<ImageModal {...props} />);
-
-    const catImageModal = screen.getByTestId("cat-image-modal");
-    const catImage = within(catImageModal).getByTestId("cat-image");
-    const newCatButton = within(catImageModal).getByTestId("new-cat-button");
-
-    const starterImageUrl = "https://cataas.com/cat/says/hello";
-
-    expect(catImage).toHaveAttribute("src", starterImageUrl);
-
-    fireEvent.click(newCatButton);
-
-    await waitFor(() =>
-      expect(catImage).not.toHaveAttribute("src", starterImageUrl)
-    );
-  });
-
   test("should close modal if `Close` button is clicked", async () => {
     // override onHide mockImplementation - to set the show prop to false when called
     // why did this not work when i tried to add this mockImplementation in the global props decalaration
