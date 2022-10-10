@@ -1,24 +1,11 @@
-import React, { useState } from "react";
-import fetch from "isomorphic-fetch";
+import React from "react";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
 
 function ImageModal(props) {
-  const [imageUrl, setImageUrl] = useState("https://cataas.com/cat/says/hello");
-
-  const { show, onHide } = props;
-
-  async function getCat() {
-    try {
-      await fetch("https://cataas.com/cat/says/hello?json=true")
-        .then((res) => res.json())
-        .then((data) => setImageUrl("https://cataas.com" + data.url));
-    } catch (err) {
-      console.error("Something went wrong 😞", err);
-    }
-  }
+  const { show, onHide, imageUrl, getCat } = props;
 
   return (
     <Modal show={show} onHide={onHide} size="md" data-testid="cat-image-modal">
