@@ -71,6 +71,10 @@ jobs:
                   password $HEROKU_TOKEN
                 EOF
                 git push https://git.heroku.com/simple-mock-app.git master:refs/heads/master
+  # ^ TODO: change to be able to push to heroku git master from a different branch
+  #  - https://devcenter.heroku.com/articles/git#deploy-from-a-branch-besides-main
+  #  issues encountered while trying to implement that feature:
+  #  - https://devcenter.heroku.com/articles/duplicate-build-version#diagnosing-deploys-from-a-different-branch
   - name: rollback-release
     public: true
     plan:
